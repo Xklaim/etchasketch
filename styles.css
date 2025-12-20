@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo{
+font-family: "Londrina Shadow", sans-serif;
+font-weight: 900;
+font-style: normal;
+font-size: 5rem;
+}
+
+
+#numberInput{
+ width: auto;
+ margin: 0.5rem;
+ padding: .5rem;
+
+}
+
+.squareCountBtn{
+    background-color: rgb(250, 187, 109);
+    border: none;
+    margin: 0.5rem;
+    padding: .5rem;
+    border-radius: 25%;
+}
+
+.container{
+   display: flex;
+   flex-wrap: wrap;
+   width: 45rem;
+}
+
+.square{
+    background-color: aliceblue;
+}
