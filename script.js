@@ -4,6 +4,29 @@ const input = document.querySelector("#numberInput");
 
 const countBtn = document.querySelector(".squareCountBtn")
 
+let currentColor = 'black';
+let useRandomColor = false;
+
+const randomColorBtn = document.querySelector('.randomColor')
+randomColorBtn.addEventListener('click', ()=>{
+    isErasing = false;
+    useRandomColor = !useRandomColor;
+})
+
+function getRandomColor(){
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`
+}
+
+const colorPicker = document.querySelector('.colorPicker');
+colorPicker.addEventListener('input', (e) => {
+  currentColor = e.target.value;
+  useRandomColor = false;
+});
+
+
 function buildGrid(count) {
     container.innerHTML = '';
     for (let i = 0; i < count; i++) {
@@ -26,7 +49,8 @@ function addHoverEffect() {
         if(isErasing){
             square.style.backgroundColor = 'white';
         }else{
-            square.style.backgroundColor = 'black';
+            const color = useRandomColor ? getRandomColor() : currentColor;
+            square.style.backgroundColor = color;
         }
         
     })
