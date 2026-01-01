@@ -22,10 +22,39 @@ function addHoverEffect() {
     const squares = document.querySelectorAll('.square');
     squares.forEach(square => {
     square.addEventListener('mouseover', ()=>{
-        square.style.backgroundColor = 'black';
+
+        if(isErasing){
+            square.style.backgroundColor = 'white';
+        }else{
+            square.style.backgroundColor = 'black';
+        }
+        
     })
 })
 }
+
+//erasing
+let isErasing = false;
+
+const drawBtn = document.querySelector('.drawBtn');
+const eraseBtn = document.querySelector('.eraseBtn');
+
+drawBtn.addEventListener('click', () => {
+    isErasing = false;
+})
+
+eraseBtn.addEventListener('click', () => {
+    isErasing = true;
+})
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'e') isErasing = true;
+});
+
+document.addEventListener('keyup', (e) => {
+  if (e.key === 'e') isErasing = false;
+});
+
 buildGrid(16);
 
 countBtn.addEventListener('click', () => {
