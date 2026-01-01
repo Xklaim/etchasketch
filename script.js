@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
-const input = document.querySelector("#numberInput")
+const input = document.querySelector("#numberInput");
+
 
 const countBtn = document.querySelector(".squareCountBtn")
 
@@ -14,8 +15,17 @@ function buildGrid(count) {
             container.appendChild(squareDiv);
         }
     }
+    addHoverEffect();
 }
 
+function addHoverEffect() {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach(square => {
+    square.addEventListener('mouseover', ()=>{
+        square.style.backgroundColor = 'black';
+    })
+})
+}
 buildGrid(16);
 
 countBtn.addEventListener('click', () => {
